@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include nav_gov_hu_invoice_connector *.css
+recursive-include nav_gov_hu_invoice_connector *.csv
+recursive-include nav_gov_hu_invoice_connector *.html
+recursive-include nav_gov_hu_invoice_connector *.ico
+recursive-include nav_gov_hu_invoice_connector *.js
+recursive-include nav_gov_hu_invoice_connector *.json
+recursive-include nav_gov_hu_invoice_connector *.md
+recursive-include nav_gov_hu_invoice_connector *.png
+recursive-include nav_gov_hu_invoice_connector *.py
+recursive-include nav_gov_hu_invoice_connector *.svg
+recursive-include nav_gov_hu_invoice_connector *.txt
+recursive-exclude nav_gov_hu_invoice_connector *.pyc
