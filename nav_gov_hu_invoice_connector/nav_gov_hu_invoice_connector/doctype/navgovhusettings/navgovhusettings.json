@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-06-06 08:25:38.027094",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "api_url",
+  "version_string",
+  "default_user_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "api_url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "API Url",
+   "reqd": 1
+  },
+  {
+   "fieldname": "version_string",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Version String",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_user_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default User",
+   "options": "NavGovHuUser",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-06-06 11:49:36.396998",
+ "modified_by": "Administrator",
+ "module": "Nav Gov Hu Invoice Connector",
+ "name": "NavGovHuSettings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

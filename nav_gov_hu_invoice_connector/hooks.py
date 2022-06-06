@@ -103,6 +103,12 @@ app_license = "MIT"
 #	}
 # }
 
+doc_events = {
+	"Sales Invoice": {
+		"on_update": "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.events.on_submit"
+	}
+}
+
 # Scheduled Tasks
 # ---------------
 
