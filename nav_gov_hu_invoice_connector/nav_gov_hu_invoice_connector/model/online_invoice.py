@@ -1490,33 +1490,8 @@ class RequestStatusType(str, Enum):
 
 
 class SoftwareOperationType(str, Enum):
-    """SoftwareOperationType -- A sz
-    á
-    ml
-    á
-    z
-    ó
-    program m
-    ű
-    k
-    ö
-    d
-    é
-    si t
-    í
-    pusa (lok
-    á
-    lis program vagy online sz
-    á
-    ml
-    á
-    z
-    ó
-    szolg
-    á
-    ltat
-    á
-    s)
+    """SoftwareOperationType -- A számlázóprogram működési típusa
+    (lokális program vagy online számlázó szolgáltatás)
     Billing operation type (local program or online billing service)
     
     """
@@ -1525,13 +1500,7 @@ class SoftwareOperationType(str, Enum):
 
 
 class SourceType(str, Enum):
-    """SourceType -- Az adatszolg
-    á
-    ltat
-    á
-    s forr
-    á
-    sa
+    """SourceType -- Az adatszolgáltatás forrása
     Data exchange source
     
     """
@@ -1543,17 +1512,7 @@ class SourceType(str, Enum):
 
 
 class TakeoverType(str, Enum):
-    """TakeoverType -- Az
-    á
-    tv
-    á
-    llal
-    á
-    s adatait tartalmaz
-    ó
-    t
-    í
-    pus
+    """TakeoverType -- Az átvállalás adatait tartalmazó típus
     Field type for data of takeover
     
     """
@@ -1572,15 +1531,7 @@ class TakeoverType(str, Enum):
 
 
 class TaxpayerAddressTypeType(str, Enum):
-    """TaxpayerAddressTypeType -- Ad
-    ó
-    z
-    ó
-    i c
-    í
-    m t
-    í
-    pus
+    """TaxpayerAddressTypeType -- Adózói cím típus
     Taxpayer address type
     
     """
@@ -1590,13 +1541,7 @@ class TaxpayerAddressTypeType(str, Enum):
 
 
 class TechnicalResultCodeType(str, Enum):
-    """TechnicalResultCodeType -- Technikai eredm
-    é
-    ny k
-    ó
-    d t
-    í
-    pus
+    """TechnicalResultCodeType -- Technikai eredmény kód típus
     Technical result code type
     
     """
@@ -1605,13 +1550,7 @@ class TechnicalResultCodeType(str, Enum):
 
 
 class UnitOfMeasureType(str, Enum):
-    """UnitOfMeasureType -- Mennyis
-    é
-    g egys
-    é
-    g t
-    í
-    pus
+    """UnitOfMeasureType -- Mennyiség egység típus
     Unit of measure type
     
     """
@@ -20244,13 +20183,14 @@ class TokenExchangeResponseType(BasicOnlineInvoiceResponseType):
                 lineno = self.gds_get_node_lineno_()
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd minInclusive restriction on InvoiceTimestampType' % {"value": value, "lineno": lineno} )
                 result = False
-            if isinstance(value, datetime.datetime) \
-               and not self.gds_validate_simple_patterns(
-                    self.validate_InvoiceTimestampType_patterns_, value.isoformat()):
-                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_InvoiceTimestampType_patterns_, ))
-                result = False
             if not isinstance(value, datetime.datetime):
                 result = False
+            else:
+                iso_format = value.isoformat()[:-9]+"Z"
+                if not self.gds_validate_simple_patterns(
+                       self.validate_InvoiceTimestampType_patterns_, iso_format):
+                    self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (iso_format, self.validate_InvoiceTimestampType_patterns_, ))
+                    result = False
         return result
     validate_InvoiceTimestampType_patterns_ = [['^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(.\\d{1,3})?Z)$']]
     def _hasContent(self):
@@ -20401,8 +20341,7 @@ class TokenExchangeResponseType(BasicOnlineInvoiceResponseType):
 
 
 class TransactionListResultType(GeneratedsSuper):
-    """TransactionListResultType -- Tranzakci
-    ó
+    """TransactionListResultType -- Tranzakció
     lek
     é
     rdez
@@ -23681,7 +23620,6 @@ class QueryTransactionStatusResponse(QueryTransactionStatusResponseType):
 class TokenExchangeRequest(BasicOnlineInvoiceRequestType):
     """TokenExchangeRequest -- A POST /tokenExchange REST operáció kérésének root elementje
     Request root element of the POST /tokenExchange REST operation
-
     """
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
@@ -43552,7 +43490,7 @@ def parseString(inString, silence=False, print_warnings=True):
         sys.stdout.write('<?xml version="1.0" ?>\n')
         rootObj.export(
             sys.stdout, 0, name_=rootTag,
-            namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common"')
+            namespacedef_='xmlns:ns2="http://schemas.nav.gov.hu/NTCA/1.0/common"')
     if print_warnings and len(gds_collector.get_messages()) > 0:
         separator = ('-' * 50) + '\n'
         sys.stderr.write(separator)

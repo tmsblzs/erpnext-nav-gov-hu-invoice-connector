@@ -12,5 +12,5 @@ class SoftwareCreator:
         software_type.softwareDevName = "PENSAV KFT"
         software_type.softwareDevContact = "coding@pensav.hu"
         software_type.softwareDevCountryCode = "HU"
-        software_type.softwareDevTaxNumber = "17401780-2-15"
+        software_type.softwareDevTaxNumber = "14701780-2-15"
         return software_type
