@@ -13,5 +13,13 @@ def on_submit(doc, event_name):
 @frappe.whitelist()
 def click_check_taxpayer(tax_number):
     query_taxpayer = QueryTaxpayer(tax_number)
-    taxpayer = query_taxpayer.query_and_save_customer()
-    return json.dumps(taxpayer.to_json())
+    taxpayer = query_taxpayer.query()
+    return json.dumps(taxpayer.to_dict())
+
+
+@frappe.whitelist()
+def click_save_taxpayer(tax_number):
+    query_taxpayer = QueryTaxpayer(tax_number)
+    taxpayer = query_taxpayer.query()
+    customer = query_taxpayer.save(taxpayer)
+    return customer.name

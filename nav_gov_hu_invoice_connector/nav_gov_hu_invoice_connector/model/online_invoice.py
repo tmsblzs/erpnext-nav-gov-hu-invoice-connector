@@ -19316,31 +19316,11 @@ class SoftwareType(GeneratedsSuper):
 
 
 class TaxpayerAddressItemType(GeneratedsSuper):
-    """TaxpayerAddressItemType -- Ad
-    ó
-    z
-    ó
-    i c
-    í
-    msor adat
+    """TaxpayerAddressItemType -- Adózói címsor adat
     Taxpayer address item
-    taxpayerAddressType -- Ad
-    ó
-    z
-    ó
-    i c
-    í
-    m t
-    í
-    pus
+    taxpayerAddressType -- Adózói cím típus
     Taxpayer address type
-    taxpayerAddress -- Az ad
-    ó
-    z
-    ó
-    c
-    í
-    madatai
+    taxpayerAddress -- Az adózó címadatai
     Address data of the taxpayer
 
     """
@@ -19508,23 +19488,9 @@ class TaxpayerAddressItemType(GeneratedsSuper):
 
 
 class TaxpayerAddressListType(GeneratedsSuper):
-    """TaxpayerAddressListType -- Ad
-    ó
-    z
-    ó
-    i c
-    í
-    m lista t
-    í
-    pus
+    """TaxpayerAddressListType -- Adózói cím lista típus
     Taxpayer address list type
-    taxpayerAddressItem -- Ad
-    ó
-    z
-    ó
-    i c
-    í
-    msor adat
+    taxpayerAddressItem -- Adózói címsor adat
     Taxpayer address item
 
     """
