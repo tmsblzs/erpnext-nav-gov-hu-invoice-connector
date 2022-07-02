@@ -16828,29 +16828,9 @@ class QueryInvoiceDigestResponseType(BasicOnlineInvoiceResponseType):
 
 
 class QueryTaxpayerRequestType(BasicOnlineInvoiceRequestType):
-    """QueryTaxpayerRequestType -- A POST /queryTaxpayer REST oper
-    á
-    ci
-    ó
-    k
-    é
-    r
-    é
-    s t
-    í
-    pusa
-    Request type of the POST /queryTaxpayer REST operation
-    taxNumber -- A lek
-    é
-    rdezett ad
-    ó
-    z
-    ó
-    ad
-    ó
-    sz
-    á
-    ma
+    """QueryTaxpayerRequestType -- A POST /queryTaxpayer REST operációkérés típusa
+        Request type of the POST /queryTaxpayer REST operation
+    taxNumber -- A lekérdezett adózó adószáma
     Tax number of the queried taxpayer
 
     """
@@ -16866,7 +16846,7 @@ class QueryTaxpayerRequestType(BasicOnlineInvoiceRequestType):
         super(globals().get("QueryTaxpayerRequestType"), self).__init__(header, user, software, extensiontype_,  **kwargs_)
         self.taxNumber = taxNumber
         self.validate_TaxpayerIdType(self.taxNumber)
-        self.taxNumber_nsprefix_ = "common"
+        self.taxNumber_nsprefix_ = None
         self.extensiontype_ = extensiontype_
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
@@ -16919,7 +16899,7 @@ class QueryTaxpayerRequestType(BasicOnlineInvoiceRequestType):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common" ', name_='QueryTaxpayerRequestType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns="http://schemas.nav.gov.hu/OSA/3.0/api" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common" ', name_='QueryTaxpayerRequestType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('QueryTaxpayerRequestType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -16952,7 +16932,7 @@ class QueryTaxpayerRequestType(BasicOnlineInvoiceRequestType):
                 outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
             else:
                 outfile.write(' xsi:type="%s"' % self.extensiontype_)
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common" ', name_='QueryTaxpayerRequestType', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns="http://schemas.nav.gov.hu/OSA/3.0/api" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common" ', name_='QueryTaxpayerRequestType', fromsubclass_=False, pretty_print=True):
         super(QueryTaxpayerRequestType, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
         if pretty_print:
             eol_ = '\n'
@@ -17016,55 +16996,13 @@ class QueryTaxpayerRequestType(BasicOnlineInvoiceRequestType):
 
 
 class QueryTaxpayerResponseType(BasicOnlineInvoiceResponseType):
-    """QueryTaxpayerResponseType -- A POST /queryTaxpayer REST oper
-    á
-    ci
-    ó
-    v
-    á
-    lasz t
-    í
-    pusa
+    """QueryTaxpayerResponseType -- A POST /queryTaxpayer REST operációválasz típusa
     Response type of the POST /queryTaxpayer REST operation
-    infoDate -- Az adatok utols
-    ó
-    v
-    á
-    ltoz
-    á
-    s
-    á
-    nak id
-    ő
-    pontja
+    infoDate -- Az adatok utolsó változásának időpontja
     Last date on which the data was changed
-    taxpayerValidity -- Jelzi, hogy a lek
-    é
-    rdezett ad
-    ó
-    z
-    ó
-    l
-    é
-    tezik
-    é
-    s
-    é
-    rv
-    é
-    nyes-e
+    taxpayerValidity -- Jelzi, hogy a lekérdezett adózó létezik és érvényes-e
     Indicates whether the queried taxpayer is existing and valid
-    taxpayerData -- Az ad
-    ó
-    z
-    ó
-    lek
-    é
-    rdez
-    é
-    s v
-    á
-    lasz adatai
+    taxpayerData -- Az adózó lekérdezés válasz adatai
     Response data of the taxpayer query
 
     """
@@ -22976,17 +22914,7 @@ class QueryInvoiceDigestResponse(QueryInvoiceDigestResponseType):
 
 
 class QueryTaxpayerRequest(QueryTaxpayerRequestType):
-    """QueryTaxpayerRequest -- A POST /queryTaxpayer REST oper
-    á
-    ci
-    ó
-    k
-    é
-    r
-    é
-    s
-    é
-    nek root elementje
+    """QueryTaxpayerRequest -- A POST /queryTaxpayer REST operáció kérésének root elementje
     Request root element of the POST /queryTaxpayer REST operation
 
     """
@@ -23022,7 +22950,7 @@ class QueryTaxpayerRequest(QueryTaxpayerRequestType):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common"', name_='QueryTaxpayerRequest', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns="http://schemas.nav.gov.hu/OSA/3.0/api" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common"', name_='QueryTaxpayerRequest', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('QueryTaxpayerRequest')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -23047,7 +22975,7 @@ class QueryTaxpayerRequest(QueryTaxpayerRequestType):
             outfile.write('/>%s' % (eol_, ))
     def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='QueryTaxpayerRequest'):
         super(QueryTaxpayerRequest, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='QueryTaxpayerRequest')
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common"', name_='QueryTaxpayerRequest', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns="http://schemas.nav.gov.hu/OSA/3.0/api" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common"', name_='QueryTaxpayerRequest', fromsubclass_=False, pretty_print=True):
         super(QueryTaxpayerRequest, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
     def to_etree(self, parent_element=None, name_='QueryTaxpayerRequest', mapping_=None, nsmap_=None):
         element = super(QueryTaxpayerRequest, self).to_etree(parent_element, name_, mapping_)
@@ -23084,15 +23012,7 @@ class QueryTaxpayerRequest(QueryTaxpayerRequestType):
 
 
 class QueryTaxpayerResponse(QueryTaxpayerResponseType):
-    """QueryTaxpayerResponse -- A POST /queryTaxpayer REST oper
-    á
-    ci
-    ó
-    v
-    á
-    lasz
-    á
-    nak root elementje
+    """QueryTaxpayerResponse -- A POST /queryTaxpayer REST operáció válaszának root elementje
     Response root element of the POST /queryTaxpayer REST operation
 
     """
@@ -23717,15 +23637,7 @@ class TokenExchangeRequest(BasicOnlineInvoiceRequestType):
 
 
 class TokenExchangeResponse(TokenExchangeResponseType):
-    """TokenExchangeResponse -- A POST /tokenExchange REST oper
-    á
-    ci
-    ó
-    v
-    á
-    lasz
-    á
-    nak root elementje
+    """TokenExchangeResponse -- A POST /tokenExchange REST operáció válaszának root elementje
     Response root element of the POST /tokenExchange REST operation
 
     """
@@ -23761,7 +23673,7 @@ class TokenExchangeResponse(TokenExchangeResponseType):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common"', name_='TokenExchangeResponse', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:base="http://schemas.nav.gov.hu/OSA/3.0/base"', name_='TokenExchangeResponse', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('TokenExchangeResponse')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
@@ -23786,7 +23698,7 @@ class TokenExchangeResponse(TokenExchangeResponseType):
             outfile.write('/>%s' % (eol_, ))
     def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='TokenExchangeResponse'):
         super(TokenExchangeResponse, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='TokenExchangeResponse')
-    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common"', name_='TokenExchangeResponse', fromsubclass_=False, pretty_print=True):
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:xs="http://www.w3.org/2001/XMLSchema"  xmlns:base="http://schemas.nav.gov.hu/OSA/3.0/base"', name_='TokenExchangeResponse', fromsubclass_=False, pretty_print=True):
         super(TokenExchangeResponse, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
     def to_etree(self, parent_element=None, name_='TokenExchangeResponse', mapping_=None, nsmap_=None):
         element = super(TokenExchangeResponse, self).to_etree(parent_element, name_, mapping_)
