@@ -9,6 +9,7 @@
   "login",
   "password",
   "xml_signing_signature",
+  "exchange_key",
   "company_id",
   "user_id"
  ],
@@ -45,11 +46,17 @@
    "in_list_view": 1,
    "label": "User",
    "options": "User"
+  },
+  {
+   "fieldname": "exchange_key",
+   "fieldtype": "Data",
+   "label": "Exchange Key",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-06-05 20:42:54.528453",
+ "modified": "2022-07-02 10:02:24.768621",
  "modified_by": "Administrator",
  "module": "Nav Gov Hu Invoice Connector",
  "name": "NavGovHuUser",
