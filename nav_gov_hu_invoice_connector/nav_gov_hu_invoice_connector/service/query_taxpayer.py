@@ -51,39 +51,58 @@ class QueryTaxpayer():
         address.type = address_item.taxpayerAddressType
         address.country_code = address_detail.countryCode
         address.postal_code = address_detail.postalCode
-        address.city = address_detail.city
-        address.street_name = address_detail.streetName
-        address.public_place_category = address_detail.publicPlaceCategory
+        address.city = address_detail.city.capitalize()
+        address.street_name = address_detail.streetName.capitalize()
+        address.public_place_category = address_detail.publicPlaceCategory.lower()
         address.number = address_detail.number
         return address
 
     def save(self, taxpayer):
-        doc = frappe.get_doc({
+        customer = frappe.get_doc({
             "doctype": "Customer",
             "customer_name": taxpayer.short_name,
             "customer_long_name": taxpayer.name,
             "tax_id": taxpayer.tax_number,
             "type": self._get_customer_type(taxpayer.incorporation)
         })
-        doc.insert()
+        customer.insert()
         if taxpayer.address is not None:
-            for address in taxpayer.address:
-                customer_address = make_address({
-                    "name": doc.name,
-                    "doctype": "Customer",
-                    "address_line1": address.street_name,
-                    "address_line2": address.public_place_category + " " + address.number,
-                    "city": address.city,
-                    "state": address.region,
-                    "address_type": self._get_address_type(address.type),
-                    "country": self._get_country(address.country_code),
-                })
-                customer_address.name = taxpayer.short_name + " - " + \
-                                        address.type + " - " + \
-                                        address.city + " - " + \
-                                        address.street_name
-                customer_address.save()
-        return doc
+            for idx, a in enumerate(taxpayer.address):
+                address = taxpayer.address[idx]
+                address_name = customer.name + " (" + \
+                               address.type + ") " + \
+                               address.city + " " + \
+                               address.street_name + " " + \
+                               address.public_place_category + " " + \
+                               address.number
+                if not frappe.db.exists("Address", address_name):
+                    customer_address = frappe.get_doc(
+                        {
+                            "name": address_name,
+                            "address_title": address_name,
+                            "doctype": "Address",
+                            "street_name": address.street_name,
+                            "public_place_category": address.public_place_category,
+                            "number": address.number,
+                            "city": address.city,
+                            "state": address.region,
+                            "pincode": address.postal_code,
+                            "building": address.building,
+                            "staircase": address.staircase,
+                            "floor": address.floor,
+                            "door": address.door,
+                            "lot_number": address.lot_number,
+                            "address_type": self._get_address_type(address.type),
+                            "country": self._get_country(address.country_code),
+                            "links": [{"link_doctype": "Customer", "link_name": customer.name}],
+                        })
+                    customer_address.flags.name_set = True
+                    customer_address.insert()
+        return customer
+
+    @staticmethod
+    def _check_address_is_already_exists(name):
+        return frappe.db.exists("Address", name)
 
     @staticmethod
     def _get_customer_type(taxpayer_type):
@@ -117,4 +136,3 @@ class QueryTaxpayer():
             return "Warehouse"
         if address_type == AddressType.BRANCH:
             return "Subsidiary"
-
