@@ -16,7 +16,8 @@ from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invo
 class TokenManagerTestCase(FrappeTestCase):
     def setUp(self):
         self.user_exchange_key = "123456890abcdefA"
-        self.user = self._create_nav_gov_hu_user(self.user_exchange_key)
+        self.user_login = "Test User"
+        self.user = self._create_nav_gov_hu_user(self.user_exchange_key, self.user_login)
         self.sut = TokenManager(self.user)
 
     @mock.patch.object(
@@ -103,6 +104,58 @@ class TokenManagerTestCase(FrappeTestCase):
 
         mock_nav_api.refresh_token.assert_not_called()
 
+    @mock.patch('nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.token_manager.DecodeHelper')
+    @mock.patch('nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.token_manager.NavGovHuAuthToken')
+    @mock.patch('nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.token_manager.NavApi')
+    def test_get_token_from_db_if_is_any(self,
+                                         mock_nav_api,
+                                         mock_nav_gov_hu_auth_token,
+                                         mock_decode_helper
+                                         ):
+        asserted_token = "adfasdfasdf"
+        mock_nav_api.refresh_token.return_value = self._create_token_exchange_response()
+        mock_nav_gov_hu_auth_token.get_token_if_exists.return_value = self._create_nav_gov_hu_auth_token(asserted_token)
+
+        result = self.sut.get_token()
+
+        self._assert_get_token_from_db(
+            mock_nav_gov_hu_auth_token,
+            mock_nav_api,
+            result,
+            asserted_token
+        )
+
+    def _assert_get_token_from_db(self, mock_nav_gov_hu_auth_token, mock_nav_api, result, asserted_token):
+        mock_nav_gov_hu_auth_token.get_token_if_exists.assert_called_with(self.user_login)
+        mock_nav_api.refresh_token.assert_not_called()
+        self.assertEqual(result, asserted_token)
+
+    @mock.patch('nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.token_manager.DecodeHelper')
+    @mock.patch('nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.token_manager.NavGovHuAuthToken')
+    @mock.patch('nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.token_manager.NavApi')
+    def test_save_token_to_db(self,
+                              mock_nav_api,
+                              mock_nav_gov_hu_auth_token,
+                              mock_decode_helper
+                              ):
+        asserted_token = "adfadfasdfasdfas"
+        asserted_valid_from = datetime.datetime.utcnow()
+        asserted_valid_to = datetime.datetime.utcnow() + datetime.timedelta(minutes=5)
+        mock_nav_api.refresh_token.return_value = self._create_token_exchange_response(
+            self._get_encoded_token(asserted_token, self.user_exchange_key),
+            asserted_valid_from,
+            asserted_valid_to)
+        mock_nav_gov_hu_auth_token.get_token_if_exists.return_value = None
+        mock_decode_helper.token.return_value = asserted_token
+
+        self.sut.get_token()
+
+        mock_nav_gov_hu_auth_token.save_updated_token.assert_called_with(
+            self.user_login,
+            asserted_token,
+            asserted_valid_from,
+            asserted_valid_to)
+
     def _setup_token_manager(self, token="", valid_from=None, valid_to=None):
         if token:
             self.sut._exchange_token = token
@@ -112,10 +165,26 @@ class TokenManagerTestCase(FrappeTestCase):
         self.sut._valid_to = valid_to
 
     @staticmethod
-    def _create_nav_gov_hu_user(exchange_key=""):
+    def _create_nav_gov_hu_user(exchange_key="", login=""):
         nav_gov_hu_user = frappe.get_doc({
             "doctype": "NavGovHuUser",
+            "login": login,
             "exchange_key": exchange_key
+        })
+        return nav_gov_hu_user
+
+    @staticmethod
+    def _create_nav_gov_hu_auth_token(asserted_token="", valid_from="", valid_to=""):
+        if len(valid_from) == 0:
+            valid_from = (datetime.datetime.utcnow() - datetime.timedelta(hours=1)).isoformat()
+        if len(valid_to) == 0:
+            valid_to = datetime.datetime.utcnow().isoformat()
+
+        nav_gov_hu_user = frappe.get_doc({
+            "doctype": "NavGovHuAuthToken",
+            "exchange_token": asserted_token,
+            "valid_from": valid_from,
+            "valid_to": valid_to
         })
         return nav_gov_hu_user
 
