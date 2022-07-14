@@ -7,7 +7,7 @@ import pytz
 from requests import Response
 
 from frappe.tests.utils import FrappeTestCase
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.api.header.online_invoice_request_type import \
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.nav_gov_hu.header.online_invoice_request_type import \
     OnlineInvoiceRequestType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.doctype.navgovhusettings.navgovhusettings import \
     NavGovHuSettings

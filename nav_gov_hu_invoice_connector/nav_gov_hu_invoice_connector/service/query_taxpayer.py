@@ -1,10 +1,9 @@
 import frappe
-from erpnext.selling.doctype.customer.customer import make_address
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.address import Address
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.address_type import AddressType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.taxpayer import Taxpayer
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.taxpayer_incorporation import TaxpayerIncorporation
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.nav_api import NavApi
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.nav_gov_hu.nav_api import NavApi
 
 
 class QueryTaxpayer():

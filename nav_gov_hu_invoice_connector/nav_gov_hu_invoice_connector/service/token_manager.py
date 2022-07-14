@@ -5,12 +5,12 @@ from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.doctype.navgovhua
     NavGovHuAuthToken
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.doctype.navgovhuuser.navgovhuuser import NavGovHuUser
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.helper.decode_helper import DecodeHelper
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.nav_api import NavApi
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.nav_gov_hu.nav_api import NavApi
 
 
 class TokenManager:
-    def __init__(self):
-        self._user = None
+    def __init__(self, user=None):
+        self._user = user
         self._exchange_token = None
         self._valid_from = None
         self._valid_to = None
@@ -21,7 +21,9 @@ class TokenManager:
         if self._exchange_token is None:
             self._check_token_in_db()
 
-        if self._exchange_token is None or self._valid_to < utc_check:
+        if self._exchange_token is None \
+                or (self._valid_to is not None
+                    and self._valid_to < utc_check):
             self._refresh_token()
 
         return self._exchange_token

@@ -1,7 +1,7 @@
 import json
 
 import frappe
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.api.token_manager import TokenManager
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.token_manager import TokenManager
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.query_taxpayer import QueryTaxpayer
 
 
