@@ -5,7 +5,7 @@ frappe.ui.form.on('Customer', {
             let tax_number = frm.doc.tax_id;
 
             frappe.call({
-              method: "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.events.click_check_taxpayer",
+              method: "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.api.customer.check_taxpayer",
               args:{
                   'tax_number': tax_number
               },
@@ -19,7 +19,7 @@ frappe.ui.form.on('Customer', {
 
 function click_yes(tax_number){
     frappe.call({
-          method: "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.events.click_save_taxpayer",
+          method: "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.api.customer.save_taxpayer",
           args:{
               'tax_number': tax_number
           },

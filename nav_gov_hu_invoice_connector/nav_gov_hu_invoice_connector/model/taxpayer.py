@@ -4,7 +4,7 @@ class Taxpayer:
         self.name = None
         self.tax_number = None
         self.incorporation = None
-        self.address = None
+        self.address_list = None
 
     def to_dict(self):
         return {
@@ -16,10 +16,6 @@ class Taxpayer:
         }
 
     def _address_to_dict(self):
-        if self.address[0] is None:
+        if self.address_list[0] is None:
             return ""
-        return self.address[0].postal_code + " " + \
-               self.address[0].city + " " + \
-               self.address[0].street_name + " " + \
-               self.address[0].public_place_category + " " + \
-               self.address[0].number
+        return self.address_list[0].to_str()

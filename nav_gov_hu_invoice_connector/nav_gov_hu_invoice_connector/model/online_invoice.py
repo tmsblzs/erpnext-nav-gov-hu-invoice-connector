@@ -1532,7 +1532,7 @@ class TakeoverType(str, Enum):
 
 class TaxpayerAddressTypeType(str, Enum):
     """TaxpayerAddressTypeType -- Adózói cím típus
-    Taxpayer address type
+    Taxpayer address_list type
     
     """
     HQ='HQ' # SzékhelyHeadquarter
@@ -4378,19 +4378,19 @@ class AddressType(GeneratedsSuper):
     szletes c
     í
     met tartalmaz
-    Format of address that includes either a simple or a detailed address
+    Format of address_list that includes either a simple or a detailed address_list
     simpleAddress -- Egyszer
     ű
     c
     í
     m
-    Simple address
+    Simple address_list
     detailedAddress -- R
     é
     szletes c
     í
     m
-    Detailed address
+    Detailed address_list
 
     """
     __hash__ = GeneratedsSuper.__hash__
@@ -4541,7 +4541,7 @@ class DetailedAddressType(GeneratedsSuper):
     szletes c
     í
     madatok
-    Detailed address data
+    Detailed address_list data
     countryCode -- Az orsz
     á
     gk
@@ -5130,7 +5130,7 @@ class SimpleAddressType(GeneratedsSuper):
     mt
     í
     pus
-    Simple address type
+    Simple address_list type
     countryCode -- Az orsz
     á
     gk
@@ -5198,7 +5198,7 @@ class SimpleAddressType(GeneratedsSuper):
     , helyrajzi sz
     á
     m, stb.)
-    Further address data (name and type of public place, house number, floor, door, lot number, etc.)
+    Further address_list data (name and type of public place, house number, floor, door, lot number, etc.)
 
     """
     __hash__ = GeneratedsSuper.__hash__
@@ -19317,9 +19317,9 @@ class SoftwareType(GeneratedsSuper):
 
 class TaxpayerAddressItemType(GeneratedsSuper):
     """TaxpayerAddressItemType -- Adózói címsor adat
-    Taxpayer address item
+    Taxpayer address_list item
     taxpayerAddressType -- Adózói cím típus
-    Taxpayer address type
+    Taxpayer address_list type
     taxpayerAddress -- Az adózó címadatai
     Address data of the taxpayer
 
@@ -19489,9 +19489,9 @@ class TaxpayerAddressItemType(GeneratedsSuper):
 
 class TaxpayerAddressListType(GeneratedsSuper):
     """TaxpayerAddressListType -- Adózói cím lista típus
-    Taxpayer address list type
+    Taxpayer address_list list type
     taxpayerAddressItem -- Adózói címsor adat
-    Taxpayer address item
+    Taxpayer address_list item
 
     """
     __hash__ = GeneratedsSuper.__hash__
@@ -19687,7 +19687,7 @@ class TaxpayerDataType(GeneratedsSuper):
     m lista t
     í
     pus
-    Taxpayer address list type
+    Taxpayer address_list list type
 
     """
     __hash__ = GeneratedsSuper.__hash__

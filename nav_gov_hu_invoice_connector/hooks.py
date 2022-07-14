@@ -107,7 +107,7 @@ doctype_js = {"Customer" : "public/js/customer.js"}
 
 doc_events = {
 	"Sales Invoice": {
-		"on_update": "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.events.on_submit"
+		"on_update": "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.sales_invoice.on_update"
 	}
 }
 

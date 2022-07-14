@@ -13,3 +13,10 @@ class Address:
         self.door = None
         self.lot_number = None
         self.type = None
+
+    def to_str(self):
+        return self.postal_code + " " + \
+               self.city + " " + \
+               self.street_name + " " + \
+               self.public_place_category + " " + \
+               self.number
