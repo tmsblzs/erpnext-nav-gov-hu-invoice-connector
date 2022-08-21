@@ -132,6 +132,12 @@ doc_events = {
 # 	]
 # }
 
+scheduler_events = {
+	"all": [
+		"nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.scheduler_tasks.task_all"
+	]
+}
+
 # Testing
 # -------
 
