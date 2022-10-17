@@ -3,6 +3,8 @@ from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invo
     ModulenotfoundExp_, SaveElementTreeNode, Tag_pattern_, GenerateDSNamespaceTypePrefixes_, find_attr_value_
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.basic_request_type import \
     BasicRequestType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.basic_response_type import \
+    BasicResponseType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.software_type import SoftwareType
 
 try:
@@ -11,24 +13,24 @@ except ModulenotfoundExp_:
     from xml.etree import ElementTree as etree_
 
 
-class BasicOnlineInvoiceRequestType(BasicRequestType):
-    """BasicOnlineInvoiceRequestType -- Online Számla rendszerre specifikus általános kérés adatok
-    Online Invoice specific basic request data
+class BasicOnlineInvoiceResponseType(BasicResponseType):
+    """BasicOnlineInvoiceResponseType -- Online Számla rendszerre specifikus általános válasz adatok
+      Online Invoice specific basic response data
     software -- A számlázó program adatai
-            Billing software data
+    Billing software data
 
     """
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
-    superclass = BasicRequestType
+    superclass = BasicResponseType
 
-    def __init__(self, header=None, user=None, software=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+    def __init__(self, header=None, result=None, software=None, extensiontype_=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
         self.parent_object_ = kwargs_.get('parent_object_')
         self.ns_prefix_ = None
-        super(globals().get("BasicOnlineInvoiceRequestType"), self).__init__(header, user, extensiontype_, **kwargs_)
+        super(globals().get("BasicOnlineInvoiceResponseType"), self).__init__(header, result, extensiontype_, **kwargs_)
         self.software = software
         self.software_nsprefix_ = None
         self.extensiontype_ = extensiontype_
@@ -36,13 +38,13 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:
             subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, BasicOnlineInvoiceRequestType)
+                CurrentSubclassModule_, BasicOnlineInvoiceResponseType)
             if subclass is not None:
                 return subclass(*args_, **kwargs_)
-        if BasicOnlineInvoiceRequestType.subclass:
-            return BasicOnlineInvoiceRequestType.subclass(*args_, **kwargs_)
+        if BasicOnlineInvoiceResponseType.subclass:
+            return BasicOnlineInvoiceResponseType.subclass(*args_, **kwargs_)
         else:
-            return BasicOnlineInvoiceRequestType(*args_, **kwargs_)
+            return BasicOnlineInvoiceResponseType(*args_, **kwargs_)
 
     factory = staticmethod(factory)
 
@@ -67,7 +69,7 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
     def _hasContent(self):
         if (
                 self.software is not None or
-                super(BasicOnlineInvoiceRequestType, self)._hasContent()
+                super(BasicOnlineInvoiceResponseType, self)._hasContent()
         ):
             return True
         else:
@@ -75,15 +77,15 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
 
     def export(self, outfile, level, namespaceprefix_='',
                namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:None="http://schemas.nav.gov.hu/OSA/3.0/metrics" ',
-               name_='BasicOnlineInvoiceRequestType', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('BasicOnlineInvoiceRequestType')
+               name_='BasicOnlineInvoiceResponseType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('BasicOnlineInvoiceResponseType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_
         if pretty_print:
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.original_tagname_ is not None and name_ == 'BasicOnlineInvoiceRequestType':
+        if self.original_tagname_ is not None and name_ == 'BasicOnlineInvoiceResponseType':
             name_ = self.original_tagname_
         if UseCapturedNS_ and self.ns_prefix_:
             namespaceprefix_ = self.ns_prefix_ + ':'
@@ -91,21 +93,21 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
         outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '',))
         already_processed = set()
         self._exportAttributes(outfile, level, already_processed, namespaceprefix_,
-                               name_='BasicOnlineInvoiceRequestType')
+                               name_='BasicOnlineInvoiceResponseType')
         if self._hasContent():
             outfile.write('>%s' % (eol_,))
             self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_,
-                                 name_='BasicOnlineInvoiceRequestType', pretty_print=pretty_print)
+                                 name_='BasicOnlineInvoiceResponseType', pretty_print=pretty_print)
             showIndent(outfile, level, pretty_print)
             outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
         else:
             outfile.write('/>%s' % (eol_,))
 
     def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='',
-                          name_='BasicOnlineInvoiceRequestType'):
-        super(BasicOnlineInvoiceRequestType, self)._exportAttributes(outfile, level, already_processed,
-                                                                     namespaceprefix_,
-                                                                     name_='BasicOnlineInvoiceRequestType')
+                          name_='BasicOnlineInvoiceResponseType'):
+        super(BasicOnlineInvoiceResponseType, self)._exportAttributes(outfile, level, already_processed,
+                                                                      namespaceprefix_,
+                                                                      name_='BasicOnlineInvoiceResponseType')
         if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
             already_processed.add('xsi:type')
             outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
@@ -117,9 +119,9 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
 
     def _exportChildren(self, outfile, level, namespaceprefix_='',
                         namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:None="http://schemas.nav.gov.hu/OSA/3.0/metrics" ',
-                        name_='BasicOnlineInvoiceRequestType', fromsubclass_=False, pretty_print=True):
-        super(BasicOnlineInvoiceRequestType, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_,
-                                                                   name_, True, pretty_print=pretty_print)
+                        name_='BasicOnlineInvoiceResponseType', fromsubclass_=False, pretty_print=True):
+        super(BasicOnlineInvoiceResponseType, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_,
+                                                                    name_, True, pretty_print=pretty_print)
         if pretty_print:
             eol_ = '\n'
         else:
@@ -129,8 +131,8 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
             self.software.export(outfile, level, namespaceprefix_, namespacedef_='', name_='software',
                                  pretty_print=pretty_print)
 
-    def to_etree(self, parent_element=None, name_='BasicOnlineInvoiceRequestType', mapping_=None, nsmap_=None):
-        element = super(BasicOnlineInvoiceRequestType, self).to_etree(parent_element, name_, mapping_)
+    def to_etree(self, parent_element=None, name_='BasicOnlineInvoiceResponseType', mapping_=None, nsmap_=None):
+        element = super(BasicOnlineInvoiceResponseType, self).to_etree(parent_element, name_, mapping_)
         if self.extensiontype_ is not None:
             element.set('{http://www.w3.org/2001/XMLSchema-instance}type', self.extensiontype_)
         if self.software is not None:
@@ -140,7 +142,7 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
             mapping_[id(self)] = element
         return element
 
-    def exportLiteral(self, outfile, level, name_='BasicOnlineInvoiceRequestType'):
+    def exportLiteral(self, outfile, level, name_='BasicOnlineInvoiceResponseType'):
         level += 1
         already_processed = set()
         self._exportLiteralAttributes(outfile, level, already_processed, name_)
@@ -148,10 +150,10 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
             self._exportLiteralChildren(outfile, level, name_)
 
     def _exportLiteralAttributes(self, outfile, level, already_processed, name_):
-        super(BasicOnlineInvoiceRequestType, self)._exportLiteralAttributes(outfile, level, already_processed, name_)
+        super(BasicOnlineInvoiceResponseType, self)._exportLiteralAttributes(outfile, level, already_processed, name_)
 
     def _exportLiteralChildren(self, outfile, level, name_):
-        super(BasicOnlineInvoiceRequestType, self)._exportLiteralChildren(outfile, level, name_)
+        super(BasicOnlineInvoiceResponseType, self)._exportLiteralChildren(outfile, level, name_)
         if self.software is not None:
             showIndent(outfile, level)
             outfile.write('software=model_.SoftwareType(\n')
@@ -176,7 +178,7 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
         if value is not None and 'xsi:type' not in already_processed:
             already_processed.add('xsi:type')
             self.extensiontype_ = value
-        super(BasicOnlineInvoiceRequestType, self)._buildAttributes(node, attrs, already_processed)
+        super(BasicOnlineInvoiceResponseType, self)._buildAttributes(node, attrs, already_processed)
 
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         if nodeName_ == 'software':
@@ -184,4 +186,4 @@ class BasicOnlineInvoiceRequestType(BasicRequestType):
             obj_.build(child_, gds_collector_=gds_collector_)
             self.software = obj_
             obj_.original_tagname_ = 'software'
-        super(BasicOnlineInvoiceRequestType, self)._buildChildren(child_, node, nodeName_, True)
+        super(BasicOnlineInvoiceResponseType, self)._buildChildren(child_, node, nodeName_, True)
