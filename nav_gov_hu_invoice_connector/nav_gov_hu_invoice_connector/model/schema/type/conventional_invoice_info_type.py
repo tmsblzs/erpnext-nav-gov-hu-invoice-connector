@@ -8,6 +8,26 @@ from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.cost_center_type import CostCentersType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.customer_company_codes_type import \
     CustomerCompanyCodesType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.dealer_codes_type import \
+    DealerCodesType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.delivery_notes_type import \
+    DeliveryNotesType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.ekaer_ids_type import EkaerIdsType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.general_ledger_account_numbers_type import \
+    GeneralLedgerAccountNumbersType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.gln_numbers_type import GlnNumbersType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.item_numbers_type import \
+    ItemNumbersType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.material_numbers_type import \
+    MaterialNumbersType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.order_numbers_type import \
+    OrderNumbersType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.project_numbers_type import \
+    ProjectNumbersType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.shipping_dates_type import \
+    ShippingDatesType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.supplier_company_codes_type import \
+    SupplierCompanyCodesType
 
 try:
     from lxml import etree as etree_

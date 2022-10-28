@@ -3,8 +3,14 @@ from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invo
     BaseStrType_, CurrentSubclassModule_, getSubclassFromModule_, Validate_simpletypes_, encode_str_2_3, \
     GenerateDSNamespaceDefs_, UseCapturedNS_, showIndent, quote_xml, ModulenotfoundExp_, quote_python, \
     SaveElementTreeNode, Tag_pattern_
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.customer_info_type import \
+    CustomerInfoType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.fiscal_representative_type import \
+    FiscalRepresentativeType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.invoice_detail_type import \
     InvoiceDetailType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.supplier_info_type import \
+    SupplierInfoType
 
 try:
     from lxml import etree as etree_
