@@ -5,7 +5,8 @@ import requests
 import frappe
 
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.helper.request_signature import RequestSignature
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import CryptoType, parseString
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import parseString
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.crypto_type import CryptoType
 
 
 class RequestHelper:

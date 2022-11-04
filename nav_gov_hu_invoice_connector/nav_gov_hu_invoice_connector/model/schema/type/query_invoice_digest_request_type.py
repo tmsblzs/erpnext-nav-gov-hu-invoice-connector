@@ -37,7 +37,7 @@ class QueryInvoiceDigestRequestType(BasicOnlineInvoiceRequestType):
         super(globals().get("QueryInvoiceDigestRequestType"), self).__init__(header, user, software, extensiontype_,  **kwargs_)
         self.page = page
         self.validate_RequestPageType(self.page)
-        self.page_nsprefix_ = "common"
+        self.page_nsprefix_ = ""
         self.invoiceDirection = invoiceDirection
         self.validate_InvoiceDirectionType(self.invoiceDirection)
         self.invoiceDirection_nsprefix_ = None
@@ -111,7 +111,7 @@ class QueryInvoiceDigestRequestType(BasicOnlineInvoiceRequestType):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common"  xmlns:None="http://schemas.nav.gov.hu/OSA/3.0/metrics" ', name_='QueryInvoiceDigestRequestType', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns="http://schemas.nav.gov.hu/OSA/3.0/api" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common"', name_='QueryInvoiceDigestRequestType', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('QueryInvoiceDigestRequestType')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_

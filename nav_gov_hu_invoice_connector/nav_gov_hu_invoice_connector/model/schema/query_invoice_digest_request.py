@@ -49,7 +49,7 @@ class QueryInvoiceDigestRequest(QueryInvoiceDigestRequestType):
             return True
         else:
             return False
-    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common"', name_='QueryInvoiceDigestRequest', pretty_print=True):
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns="http://schemas.nav.gov.hu/OSA/3.0/api" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common"', name_='QueryInvoiceDigestRequest', pretty_print=True):
         imported_ns_def_ = GenerateDSNamespaceDefs_.get('QueryInvoiceDigestRequest')
         if imported_ns_def_ is not None:
             namespacedef_ = imported_ns_def_

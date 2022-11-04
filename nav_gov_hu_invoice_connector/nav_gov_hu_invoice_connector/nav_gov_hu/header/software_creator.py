@@ -1,4 +1,4 @@
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import SoftwareType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.software_type import SoftwareType
 
 
 class SoftwareCreator:

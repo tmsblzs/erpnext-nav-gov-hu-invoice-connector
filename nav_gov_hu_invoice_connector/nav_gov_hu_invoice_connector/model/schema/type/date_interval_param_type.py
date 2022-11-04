@@ -37,13 +37,13 @@ class DateIntervalParamType(GeneratedsSuper):
         else:
             initvalue_ = dateFrom
         self.dateFrom = initvalue_
-        self.dateFrom_nsprefix_ = "base"
+        self.dateFrom_nsprefix_ = ""
         if isinstance(dateTo, BaseStrType_):
             initvalue_ = datetime_.datetime.strptime(dateTo, '%Y-%m-%d').date()
         else:
             initvalue_ = dateTo
         self.dateTo = initvalue_
-        self.dateTo_nsprefix_ = "base"
+        self.dateTo_nsprefix_ = ""
 
     def factory(*args_, **kwargs_):
         if CurrentSubclassModule_ is not None:

@@ -1,8 +1,11 @@
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.query_taxpayer_request import \
+    QueryTaxpayerRequest
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.token_exchange_request import \
+    TokenExchangeRequest
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.nav_gov_hu.header.online_invoice_request_type import \
     OnlineInvoiceRequestType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.helper.request_helper import RequestHelper
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import TokenExchangeRequest, \
-    QueryTaxpayerRequest
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.query_invoice import QueryInvoice
 
 
 class NavApi:
@@ -19,3 +22,9 @@ class NavApi:
         request.taxNumber = tax_number[:8]
         response = RequestHelper.send_request("queryTaxpayer", request)
         return response
+
+
+def query_invoice_digest():
+    invoice = QueryInvoice()
+    invoice.query()
+

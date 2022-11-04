@@ -1,7 +1,8 @@
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import GeneratedsSuper, \
     CurrentSubclassModule_, getSubclassFromModule_, Validate_simpletypes_, encode_str_2_3, GenerateDSNamespaceDefs_, \
-    UseCapturedNS_, showIndent, ModulenotfoundExp_, quote_xml, SaveElementTreeNode, Tag_pattern_, CryptoType, \
+    UseCapturedNS_, showIndent, ModulenotfoundExp_, quote_xml, SaveElementTreeNode, Tag_pattern_, \
     quote_python
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.crypto_type import CryptoType
 
 try:
     from lxml import etree as etree_

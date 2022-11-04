@@ -1,7 +1,8 @@
 import frappe
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.crypto_type import CryptoType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.user_header_type import UserHeaderType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.nav_gov_hu.header.user_error import UserError
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.doctype.navgovhuuser.navgovhuuser import NavGovHuUser
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import UserHeaderType, CryptoType
 
 
 class UserHeaderCreator:

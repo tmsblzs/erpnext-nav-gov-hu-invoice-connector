@@ -1532,6 +1532,8 @@ def parseString(inString, silence=False, print_warnings=True):
     rootTag, rootClass = get_root_tag(rootNode)
     if rootClass is None:
         rootTag = 'BasicHeaderType'
+        from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.basic_header_type import \
+            BasicHeaderType
         rootClass = BasicHeaderType
     rootObj = rootClass.factory()
     rootObj.build(rootNode, gds_collector_=gds_collector)

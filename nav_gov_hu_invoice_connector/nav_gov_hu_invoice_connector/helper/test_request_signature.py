@@ -2,12 +2,13 @@ import datetime
 from unittest import mock
 
 from frappe.tests.utils import FrappeTestCase
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.token_exchange_request import \
+    TokenExchangeRequest
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.nav_gov_hu.header.online_invoice_request_type import \
     OnlineInvoiceRequestType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.doctype.navgovhuuser.test_navgovhuuser import \
     NavGovHuUserTestCase
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.helper.request_signature import RequestSignature
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import TokenExchangeRequest
 
 
 class RequestSignatureTestCase(FrappeTestCase):

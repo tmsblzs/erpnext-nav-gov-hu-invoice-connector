@@ -36,7 +36,9 @@ app_license = "MIT"
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
-doctype_js = {"Customer" : "public/js/customer.js"}
+doctype_js = {
+		"Customer": "public/js/customer.js",
+		"Purchase Invoice": "public/js/invoice.js"}
 
 # Home Pages
 # ----------
@@ -133,9 +135,15 @@ doc_events = {
 # }
 
 scheduler_events = {
-	"all": [
-		"nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.scheduler_tasks.task_all"
-	]
+	# "all": [
+	# 		"nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.scheduler_tasks.every_five_minutes"
+	# 	]
+	#
+	# "cron": {
+	# 	"*/5 * * * *": [
+	# 		"nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.scheduler_tasks.every_five_minutes"
+	# 	]
+	# }
 }
 
 # Testing

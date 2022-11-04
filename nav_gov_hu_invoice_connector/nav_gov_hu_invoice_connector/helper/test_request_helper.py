@@ -7,6 +7,9 @@ import pytz
 from requests import Response
 
 from frappe.tests.utils import FrappeTestCase
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.token_exchange_request import \
+    TokenExchangeRequest
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.crypto_type import CryptoType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.nav_gov_hu.header.online_invoice_request_type import \
     OnlineInvoiceRequestType
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.doctype.navgovhusettings.navgovhusettings import \
@@ -14,8 +17,6 @@ from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.doctype.navgovhus
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.doctype.navgovhuuser.navgovhuuser import NavGovHuUser
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.helper.request_helper import RequestHelper
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.helper.request_signature import RequestSignature
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import TokenExchangeRequest, \
-    CryptoType
 
 
 class RequestHelperTestCase(FrappeTestCase):

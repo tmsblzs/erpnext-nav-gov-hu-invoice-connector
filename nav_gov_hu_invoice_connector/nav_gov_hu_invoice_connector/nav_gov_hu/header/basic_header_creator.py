@@ -1,6 +1,7 @@
 import datetime
 
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import BasicHeaderType
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.type.basic_header_type import \
+    BasicHeaderType
 
 
 class BasicHeaderCreator:
