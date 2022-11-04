@@ -23,6 +23,8 @@
 #   v3
 #
 import datetime
+import importlib
+import re
 import sys
 
 import pytz
@@ -1422,12 +1424,20 @@ def usage():
     print(USAGE_TEXT)
     sys.exit(1)
 
+def camel_case_to_snake_case(name):
+    pattern = re.compile(r'(?<!^)(?=[A-Z])')
+    return pattern.sub('_', name).lower()
 
 def get_root_tag(node):
     tag = Tag_pattern_.match(node.tag).groups()[-1]
     rootClass = GDSClassesMapping.get(tag)
     if rootClass is None:
         rootClass = globals().get(tag)
+    if rootClass is None:
+        tag_snake_case = camel_case_to_snake_case(tag)
+        m = importlib.import_module(f"nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector"
+                                    f".model.schema.{tag_snake_case}")
+        rootClass = getattr(m, tag)
     return tag, rootClass
 
 

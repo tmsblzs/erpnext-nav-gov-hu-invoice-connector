@@ -8,9 +8,9 @@ import frappe
 from frappe.tests.utils import FrappeTestCase
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.doctype.navgovhuauthtoken.navgovhuauthtoken import \
     NavGovHuAuthToken
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.nav_gov_hu.nav_api import NavApi
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.schema.token_exchange_response import \
+    TokenExchangeResponse
 from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.token_manager import TokenManager
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import TokenExchangeResponse
 
 
 class TokenManagerTestCase(FrappeTestCase):

@@ -1,0 +1,25 @@
+<QueryInvoiceDigestResponse xmlns="http://schemas.nav.gov.hu/OSA/3.0/api" xmlns:ns2="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:ns3="http://schemas.nav.gov.hu/OSA/3.0/base" xmlns:ns4="http://schemas.nav.gov.hu/OSA/3.0/data">
+    <ns2:header>
+        <ns2:requestId>ERP20221104133350502191</ns2:requestId>
+        <ns2:timestamp>2022-11-04T13:33:50.502Z</ns2:timestamp>
+        <ns2:requestVersion>3.0</ns2:requestVersion>
+        <ns2:headerVersion>1.0</ns2:headerVersion>
+        </ns2:header>
+    <ns2:result>
+        <ns2:funcCode>OK</ns2:funcCode>
+    </ns2:result>
+    <software>
+        <softwareId>HU14701780-ERPNEXT</softwareId>
+        <softwareName>ERPNEXT-NAV-GOV-HU-INVOICE-CONNECTOR</softwareName>
+        <softwareOperation>LOCAL_SOFTWARE</softwareOperation>
+        <softwareMainVersion>1</softwareMainVersion>
+        <softwareDevName>PENSAV KFT</softwareDevName>
+        <softwareDevContact>coding@pensav.hu</softwareDevContact>
+        <softwareDevCountryCode>HU</softwareDevCountryCode>
+        <softwareDevTaxNumber>14701780-2-15</softwareDevTaxNumber>
+    </software>
+    <invoiceDigestResult>
+        <currentPage>1</currentPage>
+        <availablePage>0</availablePage>
+    </invoiceDigestResult>
+</QueryInvoiceDigestResponse>

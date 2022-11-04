@@ -1,7 +1,8 @@
 import frappe
-from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.nav_gov_hu.nav_api import query_invoice_digest
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.purchase_invoice import PurchaseInvoice
 
 
 @frappe.whitelist()
 def check_invoices():
-    query_invoice_digest()
+    invoice = PurchaseInvoice()
+    invoice.query()

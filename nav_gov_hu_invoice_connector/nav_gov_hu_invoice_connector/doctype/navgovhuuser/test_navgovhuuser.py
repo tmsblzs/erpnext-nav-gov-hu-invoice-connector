@@ -28,6 +28,7 @@ class NavGovHuUserTestCase(FrappeTestCase):
     def create_nav_gov_hu_user(login=None,
                                 password=None,
                                 xml_signing_signature=None,
+                                exchange_key=None,
                                 is_insert=True):
         if not login:
             login = "test_login"
@@ -35,12 +36,15 @@ class NavGovHuUserTestCase(FrappeTestCase):
             password = "test_password"
         if not xml_signing_signature:
             xml_signing_signature = "test_signature"
+        if not exchange_key:
+            exchange_key = "test_exchange_key"
 
         doc = frappe.get_doc({
             "doctype": "NavGovHuUser",
             "login": login,
             "password": password,
-            "xml_signing_signature": xml_signing_signature
+            "xml_signing_signature": xml_signing_signature,
+            "exchange_key": exchange_key
         })
         if is_insert:
             doc.insert()
