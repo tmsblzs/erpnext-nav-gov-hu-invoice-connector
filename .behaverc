@@ -1,2 +1,3 @@
 [behave]
-paths = features/steps
+paths=nav_gov_hu_invoice_connector/tests
+tags=@implemented

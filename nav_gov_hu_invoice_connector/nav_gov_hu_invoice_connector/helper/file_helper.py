@@ -14,7 +14,7 @@ class FileHelper:
             file.write(str_to_write)
 
     @staticmethod
-    def _get_real_path(path):
+    def get_real_path(path):
         path_to_check = Path(path)
         if path_to_check.exists():
             return os.path.relpath(path)
@@ -23,10 +23,10 @@ class FileHelper:
 
     def get_abs_path(self, directory, filename):
         file = os.path.join(self._get_base_path(), directory, filename)
-        return FileHelper._get_real_path(file)
+        return FileHelper.get_real_path(file)
 
     def _get_base_path(self):
         if not self._base_path:
-            return FileHelper._get_real_path(FileHelper.DEFAULT_BASE_PATH)
+            return FileHelper.get_real_path(FileHelper.DEFAULT_BASE_PATH)
         else:
-            return FileHelper._get_real_path(self._base_path)
+            return FileHelper.get_real_path(self._base_path)

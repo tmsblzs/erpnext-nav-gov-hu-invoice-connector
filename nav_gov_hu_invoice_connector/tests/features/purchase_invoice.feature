@@ -2,6 +2,7 @@ Feature: Import purchase invoice
   Querying purchase invoice from NAV GOV HU online invoice system
   and import to ERPNext
 
+  @implemented
   Scenario: No purchase invoice to import
     Given   Querying purchase invoice
     When    No purchase invoice

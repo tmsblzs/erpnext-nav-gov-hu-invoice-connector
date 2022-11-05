@@ -13,10 +13,11 @@ class PurchaseInvoice:
         from_date = add_to_date(datetime.datetime.now(), days=-30)
         to_date = datetime.datetime.now()
         page_num = 1
-        response = NavApi().query_invoice_digest(from_date, to_date, page_num, InvoiceDirectionType.INBOUND)
+        nav_api = NavApi()
+        response = nav_api.query_invoice_digest(from_date, to_date, page_num, InvoiceDirectionType.INBOUND)
         if response.result.funcCode != FunctionCodeType.OK:
-            return
+            return response
         if response.invoiceDigestResult.availablePage == 0:
-            return
+            return response
         return response
 

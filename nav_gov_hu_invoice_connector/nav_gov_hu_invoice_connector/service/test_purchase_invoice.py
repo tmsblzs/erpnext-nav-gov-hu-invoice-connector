@@ -10,7 +10,7 @@ from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.service.purchase_
 
 
 class PurchaseInvoiceTestCase(FrappeTestCase):
-    DEFAULT_XML_PATH = "/home/frappe/frappe-bench/apps/nav_gov_hu_invoice_connector/features/drivers"
+    DEFAULT_XML_PATH = "/tests/features/drivers"
 
     def setUp(self):
         self.SUT = PurchaseInvoice()
