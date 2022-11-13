@@ -5,7 +5,7 @@ from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.taxpayer im
 
 class TaxPayerCreator:
     @staticmethod
-    def create_from_nav_gov_hu_response(self, response):
+    def create_from_nav_gov_hu_response(response):
         taxpayer = Taxpayer()
         taxpayer_data = response.taxpayerData
         taxpayer.short_name = taxpayer_data.taxpayerShortName

@@ -3,6 +3,7 @@ Feature: Import purchase invoice
   and import to ERPNext
 
   @implemented
+  @wip
   Scenario: No purchase invoice to import
     Given   Querying purchase invoice
     When    No purchase invoice

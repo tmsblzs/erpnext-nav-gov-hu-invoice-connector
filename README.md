@@ -39,3 +39,12 @@ MIT
     - script path: '/home/frappe/frappe-bench/apps/frappe/frappe/utils/bench_helper.py'
     - parameters: 'frappe --site erp.dev.pensav.hu run-bdd-tests --app nav_gov_hu_invoice_connector'
     - projects: 'frappe'
+  
+Known Issues:
+  Nav Gov Hu User:
+    - nagyon érzékeny a első és utolsó szóközökre
+    - ha egyszer el lett mentve a user törölni kell és újat lérehozni
+    - a password mentés módosításkor nem jó
+    - cache-t kell üríteni user módosítás után
+  Nav Gov Hu Settings:
+    - default user beállítás után cache ürítés kell (néha bench újraindítás)

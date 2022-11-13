@@ -5,12 +5,13 @@ from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.address_typ
 class AddressMapper:
     @staticmethod
     def get_name(customer_name, address):
-        address_name = customer_name + " (" + \
-                       address.type + ") " + \
-                       address.city + " " + \
-                       address.street_name + " " + \
-                       address.public_place_category + " " + \
-                       address.number
+        address_type = address.type if address.type is not None else "N/A"
+        city = address.city if address.city is not None else "N/A"
+        street_name = address.street_name if address.street_name is not None else "N/A"
+        public_place_category = address.public_place_category if address.public_place_category is not None else "N/A"
+        number = address.number if address.number is not None else "N/A"
+
+        address_name = f'{customer_name} ({address_type}) {city} {street_name} {public_place_category} {number}'
         return address_name
 
     @staticmethod
@@ -21,17 +22,18 @@ class AddressMapper:
                 "name": address_name,
                 "address_title": address_name,
                 "doctype": "Address",
-                "street_name": address.street_name,
-                "public_place_category": address.public_place_category,
-                "number": address.number,
-                "city": address.city,
-                "state": address.region,
-                "pincode": address.postal_code,
-                "building": address.building,
-                "staircase": address.staircase,
-                "floor": address.floor,
-                "door": address.door,
-                "lot_number": address.lot_number,
+                "address_line1": f'{address.street_name} {address.public_place_category} {address.number}',
+                "street_name": address.street_name if address.street_name is not None else "N/A",
+                "public_place_category": address.public_place_category if address.public_place_category is not None else "N/A",
+                "number": address.number if address.number is not None else "N/A",
+                "city": address.city if address.city is not None else "N/A",
+                "state": address.region if address.region is not None else "N/A",
+                "pincode": address.postal_code if address.postal_code is not None else "N/A",
+                "building": address.building if address.building is not None else "N/A",
+                "staircase": address.staircase if address.staircase is not None else "N/A",
+                "floor": address.floor if address.floor is not None else "N/A",
+                "door": address.door if address.door is not None else "N/A",
+                "lot_number": address.lot_number if address.lot_number is not None else "N/A",
                 "address_type": AddressMapper._get_address_type(address.type),
                 "country": AddressMapper._get_country(address.country_code),
                 "links": [{"link_doctype": "Customer", "link_name": customer_name}],
