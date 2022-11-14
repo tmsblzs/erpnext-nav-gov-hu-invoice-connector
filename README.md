@@ -48,3 +48,8 @@ Known Issues:
     - cache-t kell üríteni user módosítás után
   Nav Gov Hu Settings:
     - default user beállítás után cache ürítés kell (néha bench újraindítás)
+
+## INSTALLATION
+sudo bench get-app https://github.com/tmsblzs/erpnext-nav-gov-hu-invoice-connector.git --branch develop
+
+sudo bench --site [site] install-app [app-name] 
