@@ -53,3 +53,17 @@ Known Issues:
 sudo bench get-app https://github.com/tmsblzs/erpnext-nav-gov-hu-invoice-connector.git --branch develop
 
 sudo bench --site [site] install-app [app-name] 
+
+## SETUP
+### NAVGOVHUUSERLIST
+    - add new user
+### NAVGOVHUUSER
+    - set login, password, xml signing signature, exchange key
+### NAVGOVHUSETTINGS
+    - api url:
+      for test: https://api-test.onlineszamla.nav.gov.hu
+      for production: https://api.onliszamla.nav.gov.hu
+    - version:
+        type 'v3'
+    - default user:
+        select navgovhuuser
