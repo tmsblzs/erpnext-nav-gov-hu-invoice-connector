@@ -52,7 +52,7 @@ Known Issues:
 ## INSTALLATION
 sudo bench get-app https://github.com/tmsblzs/erpnext-nav-gov-hu-invoice-connector.git --branch develop
 
-sudo bench --site [site] install-app [app-name] 
+sudo bench --site [site] install-app nav_gov_hu_invoice_connector 
 
 ## SETUP
 ### NAVGOVHUUSERLIST
