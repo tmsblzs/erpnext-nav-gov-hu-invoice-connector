@@ -67,3 +67,6 @@ sudo bench --site [site] install-app nav_gov_hu_invoice_connector
         type 'v3'
     - default user:
         select navgovhuuser
+
+### COMPANY SETTINGS
+    - have to set company tax id

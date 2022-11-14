@@ -1,12 +1,15 @@
 import os
 from pathlib import Path
 
+import frappe
+from frappe.utils import get_site_name
+
 
 class FileHelper:
-    DEFAULT_BASE_PATH = "/home/frappe/frappe-bench/sites/erp.dev.pensav.hu/public/files"
+    DEFAULT_BASE_PATH = "/home/frappe/frappe-bench/sites/"
 
     def __init__(self):
-        self._base_path = FileHelper.DEFAULT_BASE_PATH
+        self._base_path = f'{FileHelper.DEFAULT_BASE_PATH}{get_site_name(frappe.local.request.host)}/public/files'
 
     def save_to_file(self, filename, str_to_write):
         file_name = self.get_abs_path(FileHelper.DEFAULT_BASE_PATH, filename)

@@ -22,7 +22,7 @@ class RequestHelper:
         data_str = cls._request_to_string(data_xml)
         response = requests.post(url, data=data_str, headers=RequestHelper._headers)
         response_obj = parse_response(response)
-        cls._save_to_file(response, response_obj)
+        #cls._save_to_file(response, response_obj)
         return response_obj
 
     @staticmethod
