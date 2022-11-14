@@ -1,6 +1,6 @@
 # frappe -- https://github.com/frappe/frappe is installed via 'bench init'
 setuptools~=56.0.0
-frappe~=13.26.0
+frappe~=13.36.5
 PyXB~=1.2.6
 base~=1.0.4
 requests~=2.25.1
