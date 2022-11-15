@@ -19,8 +19,7 @@ class TaxpayerQuery:
         return taxpayer
 
     def save(self, taxpayer):
-        mapper = CustomerMapper()
-        customer = mapper.from_taxpayer(taxpayer)
+        customer = CustomerMapper.from_taxpayer(taxpayer)
         customer.insert()
         if taxpayer.address_list is not None:
             for address in taxpayer.address_list:

@@ -8,7 +8,10 @@
  "field_order": [
   "api_url",
   "version_string",
-  "default_user_id"
+  "default_user_id",
+  "column_break0",
+  "default_customer_group",
+  "default_territory"
  ],
  "fields": [
   {
@@ -32,12 +35,30 @@
    "label": "Default User",
    "options": "NavGovHuUser",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_customer_group",
+   "fieldtype": "Link",
+   "label": "Default Customer Group",
+   "options": "Customer Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_territory",
+   "fieldtype": "Link",
+   "label": "Default Territory",
+   "options": "Territory",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-06-06 11:49:36.396998",
+ "modified": "2022-11-15 10:29:48.839304",
  "modified_by": "Administrator",
  "module": "Nav Gov Hu Invoice Connector",
  "name": "NavGovHuSettings",
