@@ -50,8 +50,10 @@ Known Issues:
     - default user beállítás után cache ürítés kell (néha bench újraindítás)
 
 ## INSTALLATION
-sudo bench get-app https://github.com/tmsblzs/erpnext-nav-gov-hu-invoice-connector.git --branch develop
+sudo bench get-app https://github.com/tmsblzs/erpnext-nav-gov-hu-invoice-addition.git --branch develop
+sudo bench --site [site] install-app nav_gov_hu_invoice_addition
 
+sudo bench get-app https://github.com/tmsblzs/erpnext-nav-gov-hu-invoice-connector.git --branch develop
 sudo bench --site [site] install-app nav_gov_hu_invoice_connector 
 
 ## SETUP
