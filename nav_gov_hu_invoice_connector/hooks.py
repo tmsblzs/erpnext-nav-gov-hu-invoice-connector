@@ -3,7 +3,7 @@ from . import __version__ as app_version
 app_name = "nav_gov_hu_invoice_connector"
 app_title = "Nav Gov Hu Invoice Connector"
 app_publisher = "tmsblzs"
-app_description = "It is connecto to online invoice system of hungarion tax authority."
+app_description = "This apps helps to connect to online invoice system of hungarian tax authority."
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "tmsblzs+github@gmail.com"
@@ -108,9 +108,9 @@ doctype_js = {
 # }
 
 doc_events = {
-	"Sales Invoice": {
-		"on_update": "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.sales_invoice.on_update"
-	}
+	# "Sales Invoice": {
+	# 	"on_update": "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.sales_invoice.on_update"
+	# }
 }
 
 # Scheduled Tasks
