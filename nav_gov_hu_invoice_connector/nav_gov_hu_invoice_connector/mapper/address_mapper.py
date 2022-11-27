@@ -37,6 +37,7 @@ class AddressMapper:
                 "address_type": AddressMapper._get_address_type(address.type),
                 "country": AddressMapper._get_country(address.country_code),
                 "links": [{"link_doctype": "Customer", "link_name": customer_name}],
+                "is_primary_address": True if address.type == AddressType.HQ else False,
             })
         customer_address.flags.name_set = True
         return customer_address
@@ -53,6 +54,6 @@ class AddressMapper:
         if address_type == AddressType.HQ:
             return "Billing"
         if address_type == AddressType.SITE:
-            return "Warehouse"
+            return "Shipping"
         if address_type == AddressType.BRANCH:
             return "Subsidiary"
