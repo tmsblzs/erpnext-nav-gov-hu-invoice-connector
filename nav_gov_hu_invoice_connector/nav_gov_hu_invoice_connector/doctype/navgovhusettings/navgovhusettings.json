@@ -6,15 +6,23 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "section_break1",
   "api_url",
   "version_string",
-  "default_user_id",
   "column_break0",
+  "default_user_id",
+  "section_break0",
   "default_customer_group",
-  "default_territory"
+  "default_territory",
+  "column_break1",
+  "default_customer_tax_category",
+  "default_customer_currency",
+  "default_customer_price_list",
+  "default_customer_payment_terms"
  ],
  "fields": [
   {
+   "default": "https://api-test.onlineszamla.nav.gov.hu",
    "fieldname": "api_url",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -22,6 +30,7 @@
    "reqd": 1
   },
   {
+   "default": "v3",
    "fieldname": "version_string",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -37,10 +46,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "column_break0",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "default_customer_group",
    "fieldtype": "Link",
    "label": "Default Customer Group",
@@ -53,12 +58,54 @@
    "label": "Default Territory",
    "options": "Territory",
    "reqd": 1
+  },
+  {
+   "fieldname": "section_break0",
+   "fieldtype": "Section Break",
+   "label": "Customer Defaults"
+  },
+  {
+   "fieldname": "default_customer_tax_category",
+   "fieldtype": "Link",
+   "label": "Default Tax Category",
+   "options": "Tax Category"
+  },
+  {
+   "fieldname": "default_customer_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "default_customer_price_list",
+   "fieldtype": "Link",
+   "label": "Default Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "column_break0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break1",
+   "fieldtype": "Section Break",
+   "label": "NAV Settings"
+  },
+  {
+   "fieldname": "default_customer_payment_terms",
+   "fieldtype": "Link",
+   "label": "Default Payment Terms",
+   "options": "Payment Terms Template"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2022-11-15 10:29:48.839304",
+ "modified": "2022-12-01 08:41:06.685151",
  "modified_by": "Administrator",
  "module": "Nav Gov Hu Invoice Connector",
  "name": "NavGovHuSettings",

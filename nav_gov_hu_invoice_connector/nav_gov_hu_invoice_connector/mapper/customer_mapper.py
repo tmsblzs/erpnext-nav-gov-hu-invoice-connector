@@ -14,7 +14,11 @@ class CustomerMapper:
             "tax_id": taxpayer.tax_number,
             "type": cls._get_customer_type(taxpayer.incorporation),
             "customer_group": cls._get_default_customer_group(),
-            "territory": cls._get_default_territory()
+            "territory": cls._get_default_territory(),
+            "tax_category": cls._get_default_tax_category(),
+            "default_currency": cls._get_default_currency(),
+            "default_price_list": cls._get_default_price_list(),
+            "payment_terms": cls._get_default_payment_terms()
         })
         return customer
 
@@ -25,6 +29,26 @@ class CustomerMapper:
         if taxpayer_type == TaxpayerIncorporation.SELF_EMPLOYED:
             return "Self Employed"
         return "Individual"
+
+    @classmethod
+    def _get_default_payment_terms(cls):
+        settings = cls._get_nav_gov_hu_settings()
+        return settings.default_customer_payment_terms
+
+    @classmethod
+    def _get_default_tax_category(cls):
+        settings = cls._get_nav_gov_hu_settings()
+        return settings.default_customer_tax_category
+
+    @classmethod
+    def _get_default_currency(cls):
+        settings = cls._get_nav_gov_hu_settings()
+        return settings.default_customer_currency
+
+    @classmethod
+    def _get_default_price_list(cls):
+        settings = cls._get_nav_gov_hu_settings()
+        return settings.default_customer_price_list
 
     @classmethod
     def _get_default_customer_group(cls):

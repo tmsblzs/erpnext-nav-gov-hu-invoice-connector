@@ -15,8 +15,8 @@ class Address:
         self.type = None
 
     def to_str(self):
-        return self.postal_code + " " + \
-               self.city + " " + \
-               self.street_name + " " + \
-               self.public_place_category + " " + \
-               self.number
+        return self.postal_code if self.postal_code else "" + " " + \
+               self.city + " " if self.city else "" + \
+               self.street_name + " " if self.street_name else "" + \
+               self.public_place_category if self.public_place_category else "" + " " + \
+               self.number if self.number else ""
