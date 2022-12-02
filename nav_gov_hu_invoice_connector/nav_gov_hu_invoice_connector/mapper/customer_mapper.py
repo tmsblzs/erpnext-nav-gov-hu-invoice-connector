@@ -9,7 +9,7 @@ class CustomerMapper:
     def from_taxpayer(cls, taxpayer):
         customer = frappe.get_doc({
             "doctype": "Customer",
-            "customer_name": taxpayer.short_name,
+            "customer_name": taxpayer.short_name if taxpayer.short_name else taxpayer.name,
             "customer_long_name": taxpayer.name,
             "tax_id": taxpayer.tax_number,
             "type": cls._get_customer_type(taxpayer.incorporation),
