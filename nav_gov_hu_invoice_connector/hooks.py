@@ -38,7 +38,8 @@ app_license = "MIT"
 
 doctype_js = {
 		"Customer": "public/js/customer.js",
-		"Purchase Invoice": "public/js/invoice.js"}
+		"Purchase Invoice": "public/js/invoice.js"
+}
 
 # Home Pages
 # ----------
