@@ -20,7 +20,7 @@ class RequestHelper:
         url = cls._get_url(endpoint)
         data_xml.user.requestSignature = CryptoType("SHA3-512", RequestSignature.calculate(data_xml))
         data_str = cls._request_to_string(data_xml)
-        response = requests.post(url, data=data_str, headers=RequestHelper._headers)
+        response = requests.post(url, data=data_str, headers=RequestHelper._headers, verify=False)
         response_obj = parse_response(response)
         #cls._save_to_file(response, response_obj)
         return response_obj
