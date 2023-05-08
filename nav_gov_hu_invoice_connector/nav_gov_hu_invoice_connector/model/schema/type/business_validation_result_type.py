@@ -1,0 +1,339 @@
+from nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.model.online_invoice import GeneratedsSuper, \
+    CurrentSubclassModule_, getSubclassFromModule_, Validate_simpletypes_, encode_str_2_3, \
+    GenerateDSNamespaceDefs_, UseCapturedNS_, showIndent, quote_xml, ModulenotfoundExp_, quote_python, \
+    SaveElementTreeNode, Tag_pattern_
+
+try:
+    from lxml import etree as etree_
+except ModulenotfoundExp_:
+    from xml.etree import ElementTree as etree_
+
+
+class BusinessValidationResultType(GeneratedsSuper):
+    """BusinessValidationResultType -- Üzleti validációs választípus
+    Business validation response type
+    validationResultCode -- Validációs eredmény
+            Validation result
+    validationErrorCode -- Validációs hibakód
+            Validation error code
+    message -- Feldolgozási üzenet
+            Processing message
+    pointer -- Feldolgozási kurzor adatok
+            Processing cursor data
+
+    """
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+
+    def __init__(self, validationResultCode=None, validationErrorCode=None, message=None, pointer=None,
+                 gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        self.validationResultCode = validationResultCode
+        self.validate_BusinessResultCodeType(self.validationResultCode)
+        self.validationResultCode_nsprefix_ = "common"
+        self.validationErrorCode = validationErrorCode
+        self.validate_SimpleText100NotBlankType(self.validationErrorCode)
+        self.validationErrorCode_nsprefix_ = "common"
+        self.message = message
+        self.validate_SimpleText512NotBlankType(self.message)
+        self.message_nsprefix_ = "common"
+        self.pointer = pointer
+        self.pointer_nsprefix_ = None
+
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, BusinessValidationResultType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if BusinessValidationResultType.subclass:
+            return BusinessValidationResultType.subclass(*args_, **kwargs_)
+        else:
+            return BusinessValidationResultType(*args_, **kwargs_)
+
+    factory = staticmethod(factory)
+
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+
+    def get_validationResultCode(self):
+        return self.validationResultCode
+
+    def set_validationResultCode(self, validationResultCode):
+        self.validationResultCode = validationResultCode
+
+    def get_validationErrorCode(self):
+        return self.validationErrorCode
+
+    def set_validationErrorCode(self, validationErrorCode):
+        self.validationErrorCode = validationErrorCode
+
+    def get_message(self):
+        return self.message
+
+    def set_message(self, message):
+        self.message = message
+
+    def get_pointer(self):
+        return self.pointer
+
+    def set_pointer(self, pointer):
+        self.pointer = pointer
+
+    def validate_BusinessResultCodeType(self, value):
+        result = True
+        # Validate type BusinessResultCodeType, a restriction on AtomicStringType8.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            value = value
+            enumerations = ['ERROR', 'WARN', 'INFO']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message(
+                    'Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on BusinessResultCodeType' % {
+                        "value": encode_str_2_3(value), "lineno": lineno})
+                result = False
+            if len(value) > 8:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message(
+                    'Value "%(value)s"%(lineno)s does not match xsd maxLength restriction on BusinessResultCodeType' % {
+                        "value": value, "lineno": lineno})
+                result = False
+            if len(value) < 1:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message(
+                    'Value "%(value)s"%(lineno)s does not match xsd minLength restriction on BusinessResultCodeType' % {
+                        "value": value, "lineno": lineno})
+                result = False
+        return result
+
+    def validate_SimpleText100NotBlankType(self, value):
+        result = True
+        # Validate type SimpleText100NotBlankType, a restriction on AtomicStringType100.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if len(value) > 100:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message(
+                    'Value "%(value)s"%(lineno)s does not match xsd maxLength restriction on SimpleText100NotBlankType' % {
+                        "value": value, "lineno": lineno})
+                result = False
+            if len(value) < 1:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message(
+                    'Value "%(value)s"%(lineno)s does not match xsd minLength restriction on SimpleText100NotBlankType' % {
+                        "value": value, "lineno": lineno})
+                result = False
+            if not self.gds_validate_simple_patterns(
+                    self.validate_SimpleText100NotBlankType_patterns_, value):
+                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (
+                encode_str_2_3(value), self.validate_SimpleText100NotBlankType_patterns_,))
+                result = False
+        return result
+
+    validate_SimpleText100NotBlankType_patterns_ = [['^(.*[^\\s].*)$']]
+
+    def validate_SimpleText512NotBlankType(self, value):
+        result = True
+        # Validate type SimpleText512NotBlankType, a restriction on AtomicStringType512.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if len(value) > 512:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message(
+                    'Value "%(value)s"%(lineno)s does not match xsd maxLength restriction on SimpleText512NotBlankType' % {
+                        "value": value, "lineno": lineno})
+                result = False
+            if len(value) < 1:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message(
+                    'Value "%(value)s"%(lineno)s does not match xsd minLength restriction on SimpleText512NotBlankType' % {
+                        "value": value, "lineno": lineno})
+                result = False
+            if not self.gds_validate_simple_patterns(
+                    self.validate_SimpleText512NotBlankType_patterns_, value):
+                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (
+                encode_str_2_3(value), self.validate_SimpleText512NotBlankType_patterns_,))
+                result = False
+        return result
+
+    validate_SimpleText512NotBlankType_patterns_ = [['^(.*[^\\s].*)$']]
+
+    def _hasContent(self):
+        if (
+                self.validationResultCode is not None or
+                self.validationErrorCode is not None or
+                self.message is not None or
+                self.pointer is not None
+        ):
+            return True
+        else:
+            return False
+
+    def export(self, outfile, level, namespaceprefix_='',
+               namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common"  xmlns:None="http://schemas.nav.gov.hu/OSA/3.0/metrics" ',
+               name_='BusinessValidationResultType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('BusinessValidationResultType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'BusinessValidationResultType':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '',))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_,
+                               name_='BusinessValidationResultType')
+        if self._hasContent():
+            outfile.write('>%s' % (eol_,))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_,
+                                 name_='BusinessValidationResultType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_,))
+
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='',
+                          name_='BusinessValidationResultType'):
+        pass
+
+    def _exportChildren(self, outfile, level, namespaceprefix_='',
+                        namespacedef_='xmlns:tns="http://schemas.nav.gov.hu/NTCA/1.0/common" xmlns:common="http://schemas.nav.gov.hu/NTCA/1.0/common"  xmlns:None="http://schemas.nav.gov.hu/OSA/3.0/metrics" ',
+                        name_='BusinessValidationResultType', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.validationResultCode is not None:
+            namespaceprefix_ = self.validationResultCode_nsprefix_ + ':' if (
+                        UseCapturedNS_ and self.validationResultCode_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%svalidationResultCode>%s</%svalidationResultCode>%s' % (namespaceprefix_, self.gds_encode(
+                self.gds_format_string(quote_xml(self.validationResultCode), input_name='validationResultCode')),
+                                                                                     namespaceprefix_, eol_))
+        if self.validationErrorCode is not None:
+            namespaceprefix_ = self.validationErrorCode_nsprefix_ + ':' if (
+                        UseCapturedNS_ and self.validationErrorCode_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%svalidationErrorCode>%s</%svalidationErrorCode>%s' % (namespaceprefix_, self.gds_encode(
+                self.gds_format_string(quote_xml(self.validationErrorCode), input_name='validationErrorCode')),
+                                                                                   namespaceprefix_, eol_))
+        if self.message is not None:
+            namespaceprefix_ = self.message_nsprefix_ + ':' if (UseCapturedNS_ and self.message_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%smessage>%s</%smessage>%s' % (
+            namespaceprefix_, self.gds_encode(self.gds_format_string(quote_xml(self.message), input_name='message')),
+            namespaceprefix_, eol_))
+        if self.pointer is not None:
+            namespaceprefix_ = self.pointer_nsprefix_ + ':' if (UseCapturedNS_ and self.pointer_nsprefix_) else ''
+            self.pointer.export(outfile, level, namespaceprefix_, namespacedef_='', name_='pointer',
+                                pretty_print=pretty_print)
+
+    def to_etree(self, parent_element=None, name_='BusinessValidationResultType', mapping_=None, nsmap_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://schemas.nav.gov.hu/OSA/3.0/api}' + name_, nsmap=nsmap_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://schemas.nav.gov.hu/OSA/3.0/api}' + name_, nsmap=nsmap_)
+        if self.validationResultCode is not None:
+            validationResultCode_ = self.validationResultCode
+            etree_.SubElement(element,
+                              '{http://schemas.nav.gov.hu/OSA/3.0/api}validationResultCode').text = self.gds_format_string(
+                validationResultCode_)
+        if self.validationErrorCode is not None:
+            validationErrorCode_ = self.validationErrorCode
+            etree_.SubElement(element,
+                              '{http://schemas.nav.gov.hu/OSA/3.0/api}validationErrorCode').text = self.gds_format_string(
+                validationErrorCode_)
+        if self.message is not None:
+            message_ = self.message
+            etree_.SubElement(element, '{http://schemas.nav.gov.hu/OSA/3.0/api}message').text = self.gds_format_string(
+                message_)
+        if self.pointer is not None:
+            pointer_ = self.pointer
+            pointer_.to_etree(element, name_='pointer', mapping_=mapping_, nsmap_=nsmap_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+
+    def exportLiteral(self, outfile, level, name_='BusinessValidationResultType'):
+        level += 1
+        already_processed = set()
+        self._exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self._hasContent():
+            self._exportLiteralChildren(outfile, level, name_)
+
+    def _exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+
+    def _exportLiteralChildren(self, outfile, level, name_):
+        if self.validationResultCode is not None:
+            showIndent(outfile, level)
+            outfile.write('validationResultCode=%s,\n' % self.gds_encode(quote_python(self.validationResultCode)))
+        if self.validationErrorCode is not None:
+            showIndent(outfile, level)
+            outfile.write('validationErrorCode=%s,\n' % self.gds_encode(quote_python(self.validationErrorCode)))
+        if self.message is not None:
+            showIndent(outfile, level)
+            outfile.write('message=%s,\n' % self.gds_encode(quote_python(self.message)))
+        if self.pointer is not None:
+            showIndent(outfile, level)
+            outfile.write('pointer=model_.PointerType(\n')
+            self.pointer.exportLiteral(outfile, level, name_='pointer')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'validationResultCode':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'validationResultCode')
+            value_ = self.gds_validate_string(value_, node, 'validationResultCode')
+            self.validationResultCode = value_
+            self.validationResultCode_nsprefix_ = child_.prefix
+            # validate type BusinessResultCodeType
+            self.validate_BusinessResultCodeType(self.validationResultCode)
+        elif nodeName_ == 'validationErrorCode':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'validationErrorCode')
+            value_ = self.gds_validate_string(value_, node, 'validationErrorCode')
+            self.validationErrorCode = value_
+            self.validationErrorCode_nsprefix_ = child_.prefix
+            # validate type SimpleText100NotBlankType
+            self.validate_SimpleText100NotBlankType(self.validationErrorCode)
+        elif nodeName_ == 'message':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'message')
+            value_ = self.gds_validate_string(value_, node, 'message')
+            self.message = value_
+            self.message_nsprefix_ = child_.prefix
+            # validate type SimpleText512NotBlankType
+            self.validate_SimpleText512NotBlankType(self.message)
+        elif nodeName_ == 'pointer':
+            obj_ = PointerType.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.pointer = obj_
+            obj_.original_tagname_ = 'pointer'

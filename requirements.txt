@@ -1,1 +1,14 @@
 # frappe -- https://github.com/frappe/frappe is installed via 'bench init'
+setuptools~=56.0.0
+frappe~=13.56.1
+erpnext~=13.50.1
+PyXB~=1.2.6
+base~=1.0.4
+requests~=2.25.1
+xmldict~=0.4.1
+common~=0.1.2
+pytz~=2021.1
+six~=1.15.0
+lxml~=4.6.5
+pycryptodome~=3.10.4
+behave~=1.2.6

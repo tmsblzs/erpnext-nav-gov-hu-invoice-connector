@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2022-06-06 08:25:38.027094",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break1",
+  "api_url",
+  "version_string",
+  "column_break0",
+  "default_user_id",
+  "section_break0",
+  "default_customer_group",
+  "default_territory",
+  "column_break1",
+  "default_customer_tax_category",
+  "default_customer_currency",
+  "default_customer_price_list",
+  "default_customer_payment_terms"
+ ],
+ "fields": [
+  {
+   "default": "https://api-test.onlineszamla.nav.gov.hu",
+   "fieldname": "api_url",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "API Url",
+   "reqd": 1
+  },
+  {
+   "default": "v3",
+   "fieldname": "version_string",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Version String",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_user_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default User",
+   "options": "NavGovHuUser",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_customer_group",
+   "fieldtype": "Link",
+   "label": "Default Customer Group",
+   "options": "Customer Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "default_territory",
+   "fieldtype": "Link",
+   "label": "Default Territory",
+   "options": "Territory",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break0",
+   "fieldtype": "Section Break",
+   "label": "Customer Defaults"
+  },
+  {
+   "fieldname": "default_customer_tax_category",
+   "fieldtype": "Link",
+   "label": "Default Tax Category",
+   "options": "Tax Category"
+  },
+  {
+   "fieldname": "default_customer_currency",
+   "fieldtype": "Link",
+   "label": "Default Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "default_customer_price_list",
+   "fieldtype": "Link",
+   "label": "Default Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "column_break0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break1",
+   "fieldtype": "Section Break",
+   "label": "NAV Settings"
+  },
+  {
+   "fieldname": "default_customer_payment_terms",
+   "fieldtype": "Link",
+   "label": "Default Payment Terms",
+   "options": "Payment Terms Template"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-12-01 08:41:06.685151",
+ "modified_by": "Administrator",
+ "module": "Nav Gov Hu Invoice Connector",
+ "name": "NavGovHuSettings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -3,7 +3,7 @@ from . import __version__ as app_version
 app_name = "nav_gov_hu_invoice_connector"
 app_title = "Nav Gov Hu Invoice Connector"
 app_publisher = "tmsblzs"
-app_description = "It is connecto to online invoice system of hungarion tax authority."
+app_description = "This apps helps to connect to online invoice system of hungarian tax authority."
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "tmsblzs+github@gmail.com"
@@ -35,6 +35,11 @@ app_license = "MIT"
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
+
+doctype_js = {
+		"Customer": "public/js/customer.js",
+		"Purchase Invoice": "public/js/invoice.js"
+}
 
 # Home Pages
 # ----------
@@ -103,6 +108,12 @@ app_license = "MIT"
 #	}
 # }
 
+doc_events = {
+	# "Sales Invoice": {
+	# 	"on_update": "nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.sales_invoice.on_update"
+	# }
+}
+
 # Scheduled Tasks
 # ---------------
 
@@ -123,6 +134,18 @@ app_license = "MIT"
 # 		"nav_gov_hu_invoice_connector.tasks.monthly"
 # 	]
 # }
+
+scheduler_events = {
+	# "all": [
+	# 		"nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.scheduler_tasks.every_five_minutes"
+	# 	]
+	#
+	# "cron": {
+	# 	"*/5 * * * *": [
+	# 		"nav_gov_hu_invoice_connector.nav_gov_hu_invoice_connector.hook.scheduler_tasks.every_five_minutes"
+	# 	]
+	# }
+}
 
 # Testing
 # -------
